@@ -72,14 +72,24 @@
                         </div>
                     </div>
                     <div class="row-content">
-                            <label class="label text" for="salary">Salary</label>
-                            <div>    
-                                <input type="range" id="salary" name="salary"min="30000"
+                     <label class="label text" for="salary">Salary</label>
+                     <input class="input" type="range" name="salary" id="salary" min="30000"
                                 max="50000" step="100" value="40000">
-                                <output class="salary-output" for="salary">40000</output>
-                            </div>
+                    <output class="salary-output text" for="salary">40000</output>
                     </div>
-    
+                    <script>
+                        const salary = document.querySelector('#salary'); 
+                                    const output= document.querySelector('.salary-output');
+                                    output.textContent = salary.value; 
+                                    salary.addEventListener('input', function() {
+                                    output.textContent = salary.value;
+                                    });
+                                
+                    </script>
+                    <div class="nativeDateTimePicker">
+                        <label for="party"> Choose a Date and time</label>
+                        <input type="datetime-local" id="party" name="party">
+                    </div>
                 </form>
 
             </div>
