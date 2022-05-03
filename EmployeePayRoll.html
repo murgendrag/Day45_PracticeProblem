@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="employeeroll.css">
     </head>
     <body>
+        
         <header class="header-content header">
             <div class="logo-content">
                 <img src="logo.png" width="25%">
@@ -18,12 +19,25 @@
                     <div class="form-head">
                         Employee PayRoll form
                     </div>
+                
                     <div class="row-content">
                         <label class="label text" for="name">Name</label>
                         <input class="input" type="text" id="name" name="name" placeholder="Your name.."
-                        required>
+                        required> 
                     </div>
-           
+                    <script>
+                        const text =document.querySelector('# text');
+                        const textError=document.querySelector('.texterror');
+                        text.addEventListener('input',function()
+                        {
+                            let NameRegex=RegExp('^[A-Z]{1}[a-z]{3,}$');
+                            if(NameRegex.test(textvalue))
+                            textError.textContent=""
+                            else
+                            textError.textContent="Name is Incorrect"
+                        });
+                    </script>
+                    
                     <div class="row-content">
                         <label class="label text" for="profile">profile image</label>
                         <div class="profile-radio-content">
@@ -44,8 +58,8 @@
                                 <img class="profile" id='image4' src="Ellipse -4.png">
                             </label>
                         </div>
-
                      </div>
+                    
                     <div class="row-content">
                         <label class="label text" for="gender">Gender</label>
                         <div>
@@ -71,6 +85,7 @@
                             <label class="text" for="others">Others</label>
                         </div>
                     </div>
+                    
                     <div class="row-content">
                      <label class="label text" for="salary">Salary</label>
                      <input class="input" type="range" name="salary" id="salary" min="30000"
@@ -78,7 +93,7 @@
                     <output class="salary-output text" for="salary">40000</output>
                     </div>
                     <script>
-                        const salary = document.querySelector('#salary'); 
+                                    const salary = document.querySelector('#salary'); 
                                     const output= document.querySelector('.salary-output');
                                     output.textContent = salary.value; 
                                     salary.addEventListener('input', function() {
@@ -86,9 +101,24 @@
                                     });
                                 
                     </script>
+                
                     <div class="nativeDateTimePicker">
                         <label for="party"> Choose a Date and time</label>
                         <input type="datetime-local" id="party" name="party">
+                    </div>
+             
+                    <div class="row-content">
+                        <label class="label text" for="notes">Notes</label>
+                        <textarea id="notes" class="input" name="Notes" placeholder="" 
+                            style="height:180px"></textarea>
+                        </div>
+                            <div class="buttonParent">
+                                <a href="/home.html" class="resetButton button cancelButton">Cancel</a> <div class="submit-reset">
+                                <button type="submit" class="button submitButton" id="submitButton">Submit</button>
+                                <button type="reset" class="resetButton button">Reset</button>
+                            </div>
+                        
+                        </div>
                     </div>
                 </form>
 
